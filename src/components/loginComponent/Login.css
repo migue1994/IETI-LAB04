@@ -11,8 +11,7 @@
 .login-card{
     width: 30%;
     height: auto;
-    background: white;
-    opacity: 40%;
+    background: #a7a0a0;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
