@@ -1,0 +1,37 @@
+.view-background {
+    background: url("/img/images.jpg") no-repeat center fixed;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-view{
+    width: 30% !important;
+    margin-bottom: 20px;
+}
+
+h2{
+    font-family: cursive;
+    padding: 0;
+    margin: 0;
+    color: #3c7ac2;
+}
+
+h3{
+    font-family: cursive;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.card-view .block{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content: space-between;
+}
+
