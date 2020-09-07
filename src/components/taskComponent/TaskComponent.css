@@ -1,0 +1,35 @@
+.task-background{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card-view{
+    width: 30% !important;
+    margin: 8px 0;
+}
+
+h2{
+    font-family: cursive;
+    padding: 0;
+    margin: 0;
+    color: #3c7ac2;
+}
+
+h3{
+    font-family: cursive;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.card-view .block{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content: space-between;
+}
+

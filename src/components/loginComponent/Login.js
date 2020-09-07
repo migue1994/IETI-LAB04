@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {useHistory} from 'react-router-dom';
 
-export default function Login(){
+export default function Login(props){
 
     const [userData, setUserData] = useState(null);
     let history = useHistory();
@@ -21,6 +21,13 @@ export default function Login(){
         localStorage.setItem('user', JSON.stringify(user));
     },[]);
 
+    useEffect(() => {
+        if (localStorage.getItem('userLogged')){
+            props.getFlag();
+            history.push('mainPage');
+        }
+    })
+
     function handleChange(event){
         setUserData({...userData, [event.target.name]: event.target.value});
     }
@@ -29,6 +36,8 @@ export default function Login(){
         const enteredUsed = JSON.parse(localStorage.getItem('user'));
         if (userData.username === enteredUsed.username && userData.password === enteredUsed.password){
             alert(`Welcome ${userData.username}`);
+            localStorage.setItem('userLogged', JSON.stringify(userData));
+            props.getFlag();
             history.push("/mainPage");
         }
         else {

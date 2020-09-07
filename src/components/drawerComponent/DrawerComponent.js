@@ -1,20 +1,26 @@
-import React, {useState} from "react";
-import Drawer from "@material-ui/core/Drawer";
-import {ExitToApp, Menu} from "@material-ui/icons";
-import "./Drawer.css";
 import IconButton from "@material-ui/core/IconButton";
+import {ExitToApp, Menu} from "@material-ui/icons";
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 import Button from "@material-ui/core/Button";
-import {useHistory} from 'react-router-dom';
+import React, {useState} from "react";
+import {Link, useHistory, useRouteMatch} from "react-router-dom";
+import "../mainView/MainView.css";
+import {useSelector} from "react-redux";
 
-export default function DrawerTask(){
+export default function DrawerComponent(){
 
     const history = useHistory();
     const [state, setState] = useState(false);
     const user = JSON.parse(localStorage.getItem('user'));
+    let {url} = useRouteMatch();
+    const generalPath = useSelector(state => state.paths);
 
-    function logOut(){
-        localStorage.removeItem('user');
+    function logOut() {
+        localStorage.removeItem('userLogged');
         history.push('/');
+        window.location.reload();
     }
 
     const toggleDrawer = (open) => (event) => {
@@ -26,7 +32,7 @@ export default function DrawerTask(){
 
     return(
         <div className="container">
-            <IconButton onClick={toggleDrawer(true)} >
+            <IconButton onClick={toggleDrawer(true)}>
                 <Menu className="icon"/>
             </IconButton>
             <Drawer
@@ -35,24 +41,27 @@ export default function DrawerTask(){
                 anchor={'left'}
             >
                 <div
-                    role="presentation"
                     onClick={toggleDrawer(false)}
                     onKeyDown={toggleDrawer(false)}
                     className="backgroundDrawer"
                 >
                     <div className="data">
                         <img src={"/img/user.jpg"} alt="user"/>
-                        <div className="data2">
+                        <div>
                             <h3>{user.name}</h3>
                             <p>{user.username}</p>
                         </div>
                     </div>
                     <hr/>
                     <div className="data3">
-                        <div>
-                            <p><span>Last Name: </span>{user.lastName}</p>
-                            <p><span>Phone Number: </span>{user.phoneNumber}</p>
-                            <p><span>Address: </span>{user.address}</p>
+                        <div className="link-container">
+                            <List>
+                                {generalPath.map((route, index) => (
+                                    <ListItem className="list-item" button key={index}>
+                                        <Link className="link" to={`${url}/${route.path}`}>{route.name}</Link>
+                                    </ListItem>
+                                ))}
+                            </List>
                         </div>
                         <Button
                             variant={"contained"}

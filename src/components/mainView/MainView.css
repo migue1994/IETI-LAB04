@@ -4,34 +4,96 @@
     width: 100%;
     min-height: 100vh;
     display: flex;
+    flex-direction: row;
+}
+
+.container{
+    width: auto;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.container .icon{
+    color: white !important;
+}
+
+.backgroundDrawer{
+    box-sizing: border-box;
+    background: #424040;
+    width: 250px;
+    min-height: 100%;
+    color: white;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.card-view{
-    width: 30% !important;
-    margin-bottom: 20px;
+.backgroundDrawer img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
 }
 
-h2{
-    font-family: cursive;
-    padding: 0;
-    margin: 0;
-    color: #3c7ac2;
+hr{
+    width: 248px;
 }
 
-h3{
-    font-family: cursive;
-    padding: 0;
-    margin: 20px 0 0 0;
-}
-
-.card-view .block{
-    padding: 0;
-    margin: 0;
+.backgroundDrawer .data{
+    width: 100%;
     display: flex;
     flex-direction: row;
-    width: 70%;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
 }
 
+.data3{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 10px;
+}
+
+.data3 .link-container{
+    width: 100%;
+}
+
+.data3 .button{
+    background: #000000 !important;
+    color: white !important;
+    width: 60% !important;
+}
+
+.link{
+    text-align: center;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+.list-item{
+    transition-duration: 0.4s !important;
+    display: flex !important;
+    justify-items: center !important;
+    padding: 0 0 20px 0 !important;
+}
+
+.list-item:hover{
+    background: purple !important;
+}
+
+.router-container{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-items: center;
+}

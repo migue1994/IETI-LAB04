@@ -1,63 +1,28 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {Switch, Route, useRouteMatch} from 'react-router-dom';
 import "./MainView.css";
-import Card from "@material-ui/core/Card";
-import DrawerTask from "../drawerComponent/DrawerTask";
-import {CardContent} from "@material-ui/core";
+import DrawerComponent from "../drawerComponent/DrawerComponent";
+import {useSelector} from "react-redux";
 
-const tasks = [
-    {
-        "description": "Implement login view",
-        "responsible": {
-            "name": "Miguel Rivera",
-            "email": "miguel@email.com"
-        },
-        "status": "Ready",
-        "dueDate": '12-05-2019'
-    },
-    {
-        "description": "Implement login controller",
-        "responsible": {
-            "name": "Miguel Rivera",
-            "email": "miguel@email.com"
-        },
-        "status": "In Progress",
-        "dueDate": '12-05-2019'
-    },
-    {
-        "description": "Facebook Integration",
-        "responsible": {
-            "name": "Miguel Rivera",
-            "email": "miguel@email.com"
-        },
-        "status": "Completed",
-        "dueDate": '12-05-2019'
-    }
-]
+export default function MainView() {
 
-export default function MainView(){
+    let {path} = useRouteMatch();
+    const generalPath = useSelector(state => state.paths);
 
-    const taskCard = (task) => (
-        <Card variant={"outlined"}>
-            <CardContent>
-                <h2>{task.description}</h2>
-                <div className="block">
-                    <h3>{task.status}</h3>
-                    <h3>-</h3>
-                    <h3>{task.dueDate}</h3>
-                </div>
-                <h3>{task.responsible.name}</h3>
-            </CardContent>
-        </Card>
-    )
+    useEffect(() => {
+        console.log(generalPath);
+    })
 
-    return(
-        <div className="view-background">
-            <DrawerTask/>
-            {tasks.map((task, index) => (
-                <div className="card-view" key={index}>
-                    {taskCard(task)}
-                </div>
-            ))}
+    return (
+        <div className='view-background'>
+            <DrawerComponent/>
+            <div className="router-container">
+                {/*<Switch>*/}
+                {/*    {generalPath.map((route, index) => (*/}
+                {/*        <Route key={index} path={`${path}/${route.path}`} component={route.component}/>*/}
+                {/*    ))}*/}
+                {/*</Switch>*/}
+            </div>
         </div>
     )
 }

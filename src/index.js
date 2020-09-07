@@ -1,13 +1,21 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {Provider} from "react-redux";
+import rootReducer from "./redux/reducers";
+import {createStore} from "redux";
+
+const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
-  <Fragment>
+  <Provider store={store}>
     <App />
-  </Fragment>,
+  </Provider>,
   document.getElementById('root')
 );
 
