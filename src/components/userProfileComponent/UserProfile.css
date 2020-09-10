@@ -1,0 +1,38 @@
+.userProfile-background{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.userProfile-background .userProfile-container{
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background: white;
+}
+
+.userProfile-container h1{
+    color: black;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.userProfile-container form{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form .button-user{
+    margin: 20px 0 0 0;
+    width: 100% !important;
+}

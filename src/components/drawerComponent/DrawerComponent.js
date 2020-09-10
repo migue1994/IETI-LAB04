@@ -15,7 +15,7 @@ export default function DrawerComponent(){
     const [state, setState] = useState(false);
     const user = JSON.parse(localStorage.getItem('user'));
     let {url} = useRouteMatch();
-    const generalPath = useSelector(state => state.paths);
+    const generalPath = useSelector(state => state.pathReducer);
 
     function logOut() {
         localStorage.removeItem('userLogged');
@@ -48,8 +48,8 @@ export default function DrawerComponent(){
                     <div className="data">
                         <img src={"/img/user.jpg"} alt="user"/>
                         <div>
-                            <h3>{user.name}</h3>
-                            <p>{user.username}</p>
+                            <h3>{user.fullName}</h3>
+                            <p>{user.email}</p>
                         </div>
                     </div>
                     <hr/>

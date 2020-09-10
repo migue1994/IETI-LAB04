@@ -1,22 +1,21 @@
 import TaskComponent from "../../components/taskComponent/TaskComponent";
-import NewTask from "../../components/newTaskComponent/NewTask";
+import UserProfile from "../../components/userProfileComponent/UserProfile";
 
-const initialState = {
-    paths:[
-        {
-            path: 'tasks',
-            component: TaskComponent,
-            name: 'My tasks'
-        },
-        {
-            path: 'new',
-            component: NewTask,
-            name: 'new'
-        }
-    ]
-}
+const initialState = [
+    {
+        path: 'tasks',
+        component: TaskComponent,
+        name: 'My tasks'
+    },
+    {
+        path: 'userProfile',
+        component: UserProfile,
+        name: 'Update profile'
+    }
+]
 
-const pathReducer = (state= initialState, action) => {
+
+const pathReducer = (state = initialState, action) => {
     switch (action.type) {
         default:
             return state;

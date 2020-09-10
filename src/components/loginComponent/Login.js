@@ -11,12 +11,9 @@ export default function Login(props){
 
     useEffect(() => {
         const user = {
-            username: 'miguel@email.com',
+            fullName: 'Miguel Rivera',
+            email: 'miguel@email.com',
             password: 'pass123',
-            name: 'Miguel Ángel',
-            lastName: 'Rivera Rojas',
-            phoneNumber: '52354155',
-            address: 'cr 1 # 2 - 3'
         }
         localStorage.setItem('user', JSON.stringify(user));
     },[]);
@@ -24,7 +21,7 @@ export default function Login(props){
     useEffect(() => {
         if (localStorage.getItem('userLogged')){
             props.getFlag();
-            history.push('mainPage');
+            history.push('/mainPage/tasks');
         }
     })
 
@@ -34,8 +31,8 @@ export default function Login(props){
 
     function submit(){
         const enteredUsed = JSON.parse(localStorage.getItem('user'));
-        if (userData.username === enteredUsed.username && userData.password === enteredUsed.password){
-            alert(`Welcome ${userData.username}`);
+        if (userData.email === enteredUsed.email && userData.password === enteredUsed.password){
+            alert(`Welcome ${userData.fullName}`);
             localStorage.setItem('userLogged', JSON.stringify(userData));
             props.getFlag();
             history.push("/mainPage");
@@ -58,7 +55,7 @@ export default function Login(props){
                 >
                     <TextField
                         required
-                        name={'username'}
+                        name={'email'}
                         onChange={handleChange}
                         fullWidth
                         label="Username"

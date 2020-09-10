@@ -1,0 +1,9 @@
+.responsible-container{
+    box-sizing: border-box;
+    width: 100%;
+    background: antiquewhite;
+    border-radius: 10px;
+    padding: 10px 5px;
+    margin: 10px 0;
+    line-height: 30px;
+}

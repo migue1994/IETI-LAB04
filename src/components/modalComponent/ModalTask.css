@@ -1,0 +1,11 @@
+.modal-background{
+    width: auto;
+    position: fixed;
+    left: 95%;
+    transform: translate(-100%, 0);
+    top: 75vh;
+}
+
+.button-modal{
+    margin: 5px !important;
+}

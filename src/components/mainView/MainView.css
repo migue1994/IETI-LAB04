@@ -11,7 +11,7 @@
     width: auto;
     padding: 5px 10px;
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
 }
 
 .container .icon{
