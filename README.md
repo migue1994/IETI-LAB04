@@ -16,7 +16,7 @@ Miguel Ángel Rivera Rojas
 
 - Install npm the last version
 
-- Clone the repository https://github.com/migue1994/IETI-LAB03.git and go to the folder IETI-LAB02.
+- Clone the repository https://github.com/migue1994/IETI-LAB04.git and go to the folder IETI-LAB04.
 
 ### Type in the command prompt:
 
