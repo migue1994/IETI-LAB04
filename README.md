@@ -31,11 +31,11 @@ Miguel Ángel Rivera Rojas
 
 ## Link to heroku deployment
 
-- https://ieti-lab03-task-planner-app.herokuapp.com
+- https://task-planner-lab04.herokuapp.com
 
 ## Link to azure deployment
 
-- https://task-planning.azurewebsites.net
+- https://task-planner-lab04.azurewebsites.net
 
 ## App credentials
 
