@@ -9,18 +9,17 @@ import {Link, useHistory, useRouteMatch} from "react-router-dom";
 import "../mainView/MainView.css";
 import {useSelector} from "react-redux";
 
-export default function DrawerComponent(){
+export default function DrawerComponent(props){
 
     const history = useHistory();
     const [state, setState] = useState(false);
-    const user = JSON.parse(localStorage.getItem('user'));
     let {url} = useRouteMatch();
     const generalPath = useSelector(state => state.pathReducer);
 
     function logOut() {
-        localStorage.removeItem('userLogged');
+        localStorage.removeItem('user');
+        props.flag(true);
         history.push('/');
-        window.location.reload();
     }
 
     const toggleDrawer = (open) => (event) => {
@@ -47,10 +46,6 @@ export default function DrawerComponent(){
                 >
                     <div className="data">
                         <img src={"/img/user.jpg"} alt="user"/>
-                        <div>
-                            <h3>{user.fullName}</h3>
-                            <p>{user.email}</p>
-                        </div>
                     </div>
                     <hr/>
                     <div className="data3">

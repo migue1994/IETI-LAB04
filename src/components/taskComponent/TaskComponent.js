@@ -1,18 +1,22 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./TaskComponent.css";
 import Card from "@material-ui/core/Card";
 import {CardContent} from "@material-ui/core";
-import {useSelector} from "react-redux";
 import Fab from "@material-ui/core/Fab";
 import {Add} from "@material-ui/icons";
 import {useHistory} from "react-router-dom";
 import ModalTask from "../modalComponent/ModalTask";
+import RequestService from "../../services/RequestService";
 
 export default function TaskComponent(){
 
-    const tasks = useSelector(state => state.taskStore.tasks);
-    const filtered = useSelector(state => state.filterStore.filtered);
     const history = useHistory();
+    const [tasks, setTasks] = useState(null);
+
+    useEffect(() => {
+        RequestService.getSource('api/tasks')
+            .then(data => setTasks(data))
+    })
 
     function handleFab(){
         history.push(`/mainPage/newTask`);
@@ -27,7 +31,7 @@ export default function TaskComponent(){
                     <h3>-</h3>
                     <h3>{task.dueDate}</h3>
                 </div>
-                <h3>{task.responsible.name}</h3>
+                <h3>{task.responsible.firstname} {task.responsible.lastname}</h3>
             </CardContent>
         </Card>
     )
@@ -35,12 +39,7 @@ export default function TaskComponent(){
     return(
         <div className="task-background">
             <ModalTask/>
-            {filtered.length === 0 && tasks.map((task, index) => (
-                <div className="card-view" key={index}>
-                    {taskCard(task)}
-                </div>
-            ))}
-            {filtered.length > 0 && filtered.map((task, index) => (
+            {tasks && tasks.map((task, index) => (
                 <div className="card-view" key={index}>
                     {taskCard(task)}
                 </div>

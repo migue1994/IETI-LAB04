@@ -12,8 +12,14 @@ export default function Responsible(props){
         <div className="responsible-container">
             Responsible:
             <TextField
-                label={'name'}
-                name={'name'}
+                label={'First Name'}
+                name={'firstname'}
+                onChange={handleChange}
+                fullWidth
+            />
+            <TextField
+                label={'Last Name'}
+                name={'lastname'}
                 onChange={handleChange}
                 fullWidth
             />

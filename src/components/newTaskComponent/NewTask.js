@@ -9,9 +9,8 @@ import {KeyboardDatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers"
 import DateFnsUtils from '@date-io/date-fns';
 import Responsible from "./Responsible";
 import Button from "@material-ui/core/Button";
-import {useDispatch, useSelector} from "react-redux";
-import AllActions from "../../redux/actions/AllActions";
 import {useHistory} from "react-router-dom";
+import RequestService from "../../services/RequestService";
 
 const options = [
     'Ready',
@@ -25,8 +24,6 @@ export default function NewTask() {
     const [task, setTask] = useState({status:'', dueDate: `${time.getDate()}-${time.getMonth() + 1}-${time.getFullYear()}`});
     const [responsible, setResponsible] = useState(undefined);
 
-    const tasks = useSelector(state => state.taskStore.tasks);
-    const dispatch = useDispatch();
     const history = useHistory();
 
     function handleChange(event) {
@@ -45,9 +42,8 @@ export default function NewTask() {
             responsible: responsible,
             dueDate: task.dueDate
         };
-        tasks.push(newTask)
-        dispatch(AllActions.TaskActions.UPDATE_TASK(tasks));
-        history.push("/mainPage/tasks");
+        RequestService.postResource('api/task', newTask)
+        history.push('/mainPage')
     }
 
     return (
