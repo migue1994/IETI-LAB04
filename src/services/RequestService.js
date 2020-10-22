@@ -6,7 +6,11 @@ const url = 'https://task-planner-back.herokuapp.com/';
 class RequestService{
 
     constructor() {
-        this.token = JSON.parse(localStorage.getItem('user')).accessToken;
+        if (JSON.parse(localStorage.getItem('user'))){
+            this.token = JSON.parse(localStorage.getItem('user')).accessToken;
+        }else{
+            this.token = "";
+        }
     }
 
     async getSource(path){
