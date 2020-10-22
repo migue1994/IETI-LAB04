@@ -1,25 +1,18 @@
-const axios = require('axios');
+import AuthHeader from "./AuthHeader";
 
+const axios = require('axios');
 const url = 'https://task-planner-back.herokuapp.com/';
 
 
 class RequestService{
 
-    constructor() {
-        if (JSON.parse(localStorage.getItem('user'))){
-            this.token = JSON.parse(localStorage.getItem('user')).accessToken;
-        }else{
-            this.token = "";
-        }
-    }
-
     async getSource(path){
-        const response = await axios.get(url+path, {headers: {'Authorization': 'Bearer ' + this.token}});
+        const response = await axios.get(url+path, {headers: AuthHeader()});
         return await response.data;
     }
 
     postResource(path, payload){
-        axios.post(url + path, payload, {headers: {'Authorization': 'Bearer ' + this.token}})
+        axios.post(url + path, payload, {headers: AuthHeader()})
             .then(response => console.log(response.status))
             .catch(error => {
                 if (error.response){

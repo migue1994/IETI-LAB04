@@ -17,7 +17,7 @@ export default function Login(props){
     function submit(){
         RequestService.login(userData);
         props();
-        history.push('/mainPage');
+        history.push('/mainPage')
     }
 
     return(
@@ -29,6 +29,7 @@ export default function Login(props){
                 <h1>Task Planner</h1>
                 <form
                     className="content"
+                    onSubmit={submit}
                 >
                     <TextField
                         required
@@ -49,7 +50,7 @@ export default function Login(props){
                     />
                     <Button
                         className="login-button"
-                        onClick={submit}
+                        type="submit"
                     >
                         Login
                     </Button>
