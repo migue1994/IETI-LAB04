@@ -26,7 +26,7 @@ class RequestService{
     }
 
     login(payload){
-        axios.post(url+'user/login', payload)
+        return axios.post(url+'user/login', payload)
             .then(response => localStorage.setItem('user', JSON.stringify(response.data)))
             .then(() => console.log('OK'))
             .then()

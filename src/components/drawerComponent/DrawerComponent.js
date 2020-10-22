@@ -9,7 +9,7 @@ import {Link, useHistory, useRouteMatch} from "react-router-dom";
 import "../mainView/MainView.css";
 import {useSelector} from "react-redux";
 
-export default function DrawerComponent(props){
+export default function DrawerComponent(){
 
     const history = useHistory();
     const [state, setState] = useState(false);
@@ -18,7 +18,6 @@ export default function DrawerComponent(props){
 
     function logOut() {
         localStorage.removeItem('user');
-        props.flag(true);
         history.push('/');
     }
 

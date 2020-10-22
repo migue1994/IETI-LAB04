@@ -43,7 +43,7 @@ export default function NewTask() {
             dueDate: task.dueDate
         };
         RequestService.postResource('api/task', newTask)
-        history.push('/mainPage')
+        history.push('/mainPage/tasks')
     }
 
     return (
